@@ -60,13 +60,10 @@ select {
     ;
 }
 
-/* .box:active,
-.box-2:active,
-.box-3:active {
-    background-color: rgb(166, 216, 235);
-
-} */
-
 .cell-bg {
     background-color: rgb(166, 216, 235);
+}
+
+.cell-warning {
+    background-color: rgb(224, 29, 29);
 }
