@@ -48,13 +48,21 @@ function generateGrid(grid, level) { //Livello 1
                 console.log(this);
                 let boxclicked = this;
                 this.classList.toggle("cell-bg");
+                this.classList.toggle("no-more-click");
                 // Stampali in console
                 console.log("Il box che hai cliccato è il numero: " + boxCell);
 
+                // Se la cella selezionata è tra i numeri random generati dal pc- la casella diventa rossa
                 if (placeBombs.includes(boxCell)) {
                     this.classList.toggle("cell-warning");
-                }
+                    // SUPERBONUS 1- le caselle non si cliccano più
+                    let stopGame = document.querySelectorAll(".grid>div");
+                    stopGame.forEach((element) => {
+                        element.classList.add("no-more-click");
 
+                    });
+
+                }
             }
         )
 
@@ -72,8 +80,8 @@ function generateGrid(grid, level) { //Livello 1
         console.log(placeBombs);
     }
     return placeBombs;
-}
 
+}
 
 /*************************************
  *                                   *

@@ -12,7 +12,7 @@
 .box {
     width: calc(100%/10);
     height: calc(100%/10);
-    border: 2px solid rgb(218, 80, 42);
+    border: 2px solid rgb(85, 194, 125);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,7 @@
 .box-3 {
     width: calc(100%/7);
     height: calc(100%/7);
-    border: 2px solid rgb(85, 194, 125);
+    border: 2px solid rgb(218, 80, 42);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,4 +66,9 @@ select {
 
 .cell-warning {
     background-color: rgb(224, 29, 29);
+    pointer-events: none;
+}
+
+.no-more-click {
+    pointer-events: none;
 }
