@@ -7,6 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Griglia Campo Minato</title>
 	<!-- LINK -->
+	<!-- Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700;1,900&display=swap" rel="stylesheet">
 	<!-- Font-awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -24,28 +28,31 @@
 	<!-- HEADER -->
 	<header>
 		<div class="nav-bar-container">
-			<nav>
 
-			</nav>
+			<div class="game-cm pt-5 d-flex justify-content-center">
+				<h1>Campo minato</h1>
+
+				<!-- Select -->
+				<div class="d-flex">
+					<div class="custom-select">
+						<select name="game-levels" id="levels">
+							<option id="arrow" value="level-1">Livello Principiante</option>
+							<option value="level-2">Livello Intermedio</option>
+							<option value="level-3">Livello Avanzato</option>
+						</select>
+					</div>
+					<!-- Button -->
+					<input class="btn submit-button ms-2" type="button" value="GIOCA">
+				</div>
+			</div>
+
 		</div>
 	</header>
 
 	<!-- MAIN -->
-	<div class="container-fluid p-5">
-		<div class="game-cm">
-			<h1>Griglia campo minato</h1>
-
-			<!-- Select -->
-			<select name="game-levels" id="levels">
-				<option value="level-1">Difficoltà livello 1</option>
-				<option value="level-2">Difficoltà livello 2</option>
-				<option value="level-3">Difficoltà livello 3</option>
-			</select>
-			<!-- Button -->
-			<input class="btn rounded-pill submit-button ms-3" type="button" value="GIOCA">
-		</div>
+	<div class="container-fluid p-2">
 		<!-- Grid -->
-		<div class="grid d-flex mt-5">
+		<div class="grid d-flex mt-4 mb-5">
 
 		</div>
 		<!-- Message -->
@@ -54,6 +61,9 @@
 		</div>
 
 	</div>
+	<footer>
+
+	</footer>
 
 
 	<!-- JAVASCRIPT -->

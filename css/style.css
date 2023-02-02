@@ -1,55 +1,107 @@
-.grid {
-    width: 900px;
-    height: 900px;
-    flex-wrap: wrap;
-    margin: 0 auto;
+:root {
+    --black: #0b0f16;
+    --black-light: #1d2634;
 }
 
+body {
+    background-color: var(--black-light);
+    color: white;
+}
+
+
+/* TESTO PLAYs */
 .game-cm {
     text-align: center;
+    padding: 1rem 4rem;
+    align-items: center;
+    gap: 4rem;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.1rem;
+}
+
+/* GRIGLIA - conterrà i box */
+.grid {
+    width: 800px;
+    height: 800px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    color: white;
 }
 
 .box {
-    width: calc(100%/10);
-    height: calc(100%/10);
-    border: 2px solid rgb(85, 194, 125);
+    width: calc((100%/10) - 1px);
+    height: calc((100%/10) - 1px);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
+    /* border: 2px solid rgb(222, 75, 49); */
+    position: relative;
+    margin-right: 0.3px;
+    margin-bottom: 0.3px;
+    border-radius: 1.2rem;
+    background: #1d2634;
+    box-shadow: inset 5px 5px 6px #0c0f15,
+        inset -5px -5px 6px #2e3d53;
 }
 
 .box-2 {
     width: calc(100%/9);
     height: calc(100%/9);
-    border: 2px solid rgb(222, 176, 49);
+    /* border: 2px solid rgb(222, 176, 49); */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
+    box-shadow: inset 5px 5px 6px #0c0f15,
+        inset -5px -5px 6px #2e3d53;
 }
 
 .box-3 {
     width: calc(100%/7);
     height: calc(100%/7);
-    border: 2px solid rgb(218, 80, 42);
+    /* border: 2px solid rgb(218, 80, 42); */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
+    box-shadow: inset 5px 5px 6px #0c0f15,
+        inset -5px -5px 6px #2e3d53;
 
 }
+
+/* SELECT */
 
 select {
-    height: 50px;
+    height: 80px;
     border: none;
     font-size: 1.2rem;
+    border-radius: 1.2rem;
+    background: #1d2634;
+    box-shadow: inset 5px 5px 6px #0c0f15,
+        inset -5px -5px 6px #2e3d53;
+    color: white;
+    padding: 0rem 2rem;
+    /* appearance: none; */
 }
+
+
 
 /* Button */
 .submit-button {
+    width: 80px;
+    height: 80px;
     background-color: rgb(62, 157, 191);
+    font-family: 'Poppins', sans-serif;
     color: white;
+    padding: 10px;
+    border-radius: 1.2rem;
+    background: #1d2634;
+    box-shadow: inset 5px 5px 6px #0c0f15,
+        inset -5px -5px 6px #2e3d53;
 }
 
 .submit-button:hover {
@@ -57,7 +109,7 @@ select {
     color: white;
     outline: 2px dotted rgb(62, 157, 191);
     outline-offset: 2px;
-    ;
+
 }
 
 .cell-bg {
@@ -71,4 +123,10 @@ select {
 
 .no-more-click {
     pointer-events: none;
+}
+
+.box:hover {
+    background: linear-gradient(145deg, #1a222f, #1f2938);
+    box-shadow: 5px 5px 10px #11161f,
+        -5px -5px 10px #293649;
 }
