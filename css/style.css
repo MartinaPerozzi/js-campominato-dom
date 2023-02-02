@@ -1,0 +1,72 @@
+.grid {
+    width: 900px;
+    height: 900px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.game-cm {
+    text-align: center;
+}
+
+.box {
+    width: calc(100%/10);
+    height: calc(100%/10);
+    border: 2px solid rgb(218, 80, 42);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.box-2 {
+    width: calc(100%/9);
+    height: calc(100%/9);
+    border: 2px solid rgb(222, 176, 49);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.box-3 {
+    width: calc(100%/7);
+    height: calc(100%/7);
+    border: 2px solid rgb(85, 194, 125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+
+}
+
+select {
+    height: 50px;
+    border: none;
+    font-size: 1.2rem;
+}
+
+/* Button */
+.submit-button {
+    background-color: rgb(62, 157, 191);
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: rgb(80, 186, 225);
+    color: white;
+    outline: 2px dotted rgb(62, 157, 191);
+    outline-offset: 2px;
+    ;
+}
+
+/* .box:active,
+.box-2:active,
+.box-3:active {
+    background-color: rgb(166, 216, 235);
+
+} */
+
+.cell-bg {
+    background-color: rgb(166, 216, 235);
+}
