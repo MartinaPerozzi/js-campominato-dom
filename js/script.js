@@ -55,6 +55,7 @@ function generateGrid(grid, level) { //Livello 1
                 // Se la cella selezionata è tra i numeri random generati dal pc- la casella diventa rossa
                 if (placeBombs.includes(boxCell)) {
                     this.classList.toggle("cell-warning");
+                    this.innerHTML = '<font size="6">💣</font>';
                     // SUPERBONUS 1- le caselle non si cliccano più
                     let stopGame = document.querySelectorAll(".grid>div");
                     stopGame.forEach((element) => {

@@ -8,6 +8,13 @@ body {
     color: white;
 }
 
+/* HEADER */
+header {
+    background: #1d2634;
+    box-shadow: inset 6px 6px 12px #171e29,
+        inset -6px -6px 12px #232e3f;
+}
+
 
 /* TESTO PLAYs */
 .game-cm {
@@ -49,25 +56,29 @@ h1 {
 }
 
 .box-2 {
-    width: calc(100%/9);
-    height: calc(100%/9);
+    width: calc((100%/9) - 1px);
+    height: calc((100%/9) - 1px);
     /* border: 2px solid rgb(222, 176, 49); */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
+    border-radius: 1.2rem;
+    margin: 0px 0.3px 0.3px 0px;
     box-shadow: inset 5px 5px 6px #0c0f15,
         inset -5px -5px 6px #2e3d53;
 }
 
 .box-3 {
-    width: calc(100%/7);
-    height: calc(100%/7);
+    width: calc((100%/7) - 1px);
+    height: calc((100%/7) - 1px);
     /* border: 2px solid rgb(218, 80, 42); */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
+    border-radius: 1.2rem;
+    margin: 0px 0.3px 0.3px 0px;
     box-shadow: inset 5px 5px 6px #0c0f15,
         inset -5px -5px 6px #2e3d53;
 
@@ -105,13 +116,28 @@ select {
 }
 
 .submit-button:hover {
-    background-color: rgb(80, 186, 225);
+    /* background-color: rgb(80, 186, 225); */
+    background-color: rgb(166, 216, 235);
     color: white;
     outline: 2px dotted rgb(62, 157, 191);
     outline-offset: 2px;
 
 }
 
+.box:hover {
+    background: linear-gradient(145deg, #1a222f, #1f2938);
+    box-shadow: 5px 5px 10px #11161f,
+        -5px -5px 10px #293649;
+}
+
+/* FOOTER */
+footer {
+    background: #1d2634;
+    box-shadow: inset 6px 6px 12px #171e29,
+        inset -6px -6px 12px #232e3f;
+}
+
+/* NEW CLASS for JS */
 .cell-bg {
     background-color: rgb(166, 216, 235);
 }
@@ -123,10 +149,4 @@ select {
 
 .no-more-click {
     pointer-events: none;
-}
-
-.box:hover {
-    background: linear-gradient(145deg, #1a222f, #1f2938);
-    box-shadow: 5px 5px 10px #11161f,
-        -5px -5px 10px #293649;
 }
