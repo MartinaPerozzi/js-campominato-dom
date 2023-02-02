@@ -60,7 +60,6 @@ function generateGrid(grid, level) { //Livello 1
                     let stopGame = document.querySelectorAll(".grid>div");
                     stopGame.forEach((element) => {
                         element.classList.add("no-more-click");
-
                     });
 
                 }
@@ -100,11 +99,9 @@ submitChoiceButton.addEventListener(
 
         } if (levelUserSelection == "level-2") {
             generateGrid(containerGrid, levelTwo);
-            generateBombs(levelTwo);
 
         } else if (levelUserSelection == "level-3") {
             generateGrid(containerGrid, levelThree);
-            generateBombs(levelThree);
         }
     }
 

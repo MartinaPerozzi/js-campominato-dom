@@ -150,3 +150,80 @@ footer {
 .no-more-click {
     pointer-events: none;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 932px) {
+
+    .grid {
+        width: 600px;
+        height: 600px;
+    }
+
+    .game-cm {
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .grid {
+        width: 400px;
+        height: 400px;
+    }
+
+    .grid>div {
+        font-size: 1rem;
+    }
+
+    select,
+    .submit-button {
+        height: 40px;
+        padding: 0rem 0.3rem 0rem 0.3rem;
+
+    }
+
+    select,
+    h1,
+    .submit-button {
+        font-size: 1rem;
+    }
+
+    .game-cm {
+        gap: 0.5rem;
+    }
+
+}
+
+/* XS */
+@media screen and (max-width: 400px) {
+
+    header {}
+
+    .grid {
+        width: 300px;
+        height: 300px;
+    }
+
+    .game-cm>div {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    select {
+        padding: 0rem 0.3rem 0rem 0.3rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+
+
+}
