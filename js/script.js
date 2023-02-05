@@ -1,7 +1,7 @@
 // Preparo gli elementi necessari
 const submitChoiceButton = document.querySelector(".submit-button");
 const containerGrid = document.querySelector(".grid");
-
+let gameOverBoo = false;
 
 // Levels
 const levelOne = 100;
@@ -65,7 +65,7 @@ function generateGrid(grid, level) { //GENERA
 
                     this.classList.toggle("cell-warning");
                     this.innerHTML = '<font size="6">💣</font>';
-                    gameOver(cellIndex);
+                    gameOver(cellIndex, false);
 
                     // SUPERBONUS 1- le caselle non si cliccano più
                     let stopGame = document.querySelectorAll(".grid>div");
@@ -96,11 +96,24 @@ function generateGrid(grid, level) { //GENERA
 
 }
 // FUNZIONE CHE TERMINA IL GIOCO
-function gameOver(boxElements) {
+function gameOver(boxElements, gameOverBoo) {
     const activeBoxes = document.querySelectorAll(".cell-bg");
     console.log(activeBoxes);
     let userPoints = document.querySelector(".points");
     userPoints.innerHTML = `${activeBoxes.length}`;
+
+    // gameOverBoo = true;
+    // if (gameOverBoo = true) {
+    //     let boxes = document.querySelectorAll(".grid div");
+
+    //     for (boxes of boxes) {
+    //         const boxesIndex = parseInt(boxes.getAttribute("data-index"));
+    //         if (placeBombs.includes(boxesIndex)) {
+    //             boxes.classList.add("warning-cell");
+    //         }
+    //     }
+    // }
+
 
     return activeBoxes;
 }
@@ -133,3 +146,14 @@ submitChoiceButton.addEventListener(
 
 )
 
+
+if (gameOverBoo = true) {
+    let boxes = document.querySelectorAll(".grid div");
+
+    for (boxes of boxes) {
+        const boxesIndex = parseInt(boxes.getAttribute("data-index"));
+        if (placeBombs.includes(boxesIndex)) {
+            boxes.classList.add("warning-cell");
+        }
+    }
+}
