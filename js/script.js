@@ -2,6 +2,7 @@
 const submitChoiceButton = document.querySelector(".submit-button");
 const containerGrid = document.querySelector(".grid");
 
+
 // Levels
 const levelOne = 100;
 const levelTwo = 81;
@@ -17,7 +18,7 @@ const levelThree = 49;
  * @param {HTMLElement} grid l'elemento nel quale inserire i box;
  * @param {Int} level livello scelto dall'utente e dimensione griglia;
  */
-function generateGrid(grid, level) { //Livello 1
+function generateGrid(grid, level) { //GENERA
     // Parti da un luogo sempre vuoto
     grid.innerHTML = "";
     // Per n volte
@@ -41,28 +42,40 @@ function generateGrid(grid, level) { //Livello 1
         boxElements.innerHTML += i;
         // Prendili da parte
         let boxCell = i;
+        console.log(boxCell);
+        // Setta l'attributo che tiene il conto della posizione dei box
+        boxElements.setAttribute("data-index", i);
+
         // Rendili cliccabili
         boxElements.addEventListener(
             "click",
             function () {
+
+                const cellIndex = parseInt(this.getAttribute("data-index"));
+
+                console.log(cellIndex)
                 console.log(this);
-                let boxclicked = this;
-                this.classList.toggle("cell-bg");
+                // Se hai cliccato non puoi rifarlo
                 this.classList.toggle("no-more-click");
                 // Stampali in console
                 console.log("Il box che hai cliccato è il numero: " + boxCell);
 
                 // Se la cella selezionata è tra i numeri random generati dal pc- la casella diventa rossa
                 if (placeBombs.includes(boxCell)) {
+
                     this.classList.toggle("cell-warning");
                     this.innerHTML = '<font size="6">💣</font>';
+                    gameOver(cellIndex);
+
                     // SUPERBONUS 1- le caselle non si cliccano più
                     let stopGame = document.querySelectorAll(".grid>div");
                     stopGame.forEach((element) => {
                         element.classList.add("no-more-click");
                     });
-
+                } else {
+                    this.classList.toggle("cell-bg");
                 }
+
             }
         )
 
@@ -82,6 +95,15 @@ function generateGrid(grid, level) { //Livello 1
     return placeBombs;
 
 }
+// FUNZIONE CHE TERMINA IL GIOCO
+function gameOver(boxElements) {
+    const activeBoxes = document.querySelectorAll(".cell-bg");
+    console.log(activeBoxes);
+    let userPoints = document.querySelector(".points");
+    userPoints.innerHTML = `${activeBoxes.length}`;
+
+    return activeBoxes;
+}
 
 /*************************************
  *                                   *
@@ -92,6 +114,10 @@ function generateGrid(grid, level) { //Livello 1
 submitChoiceButton.addEventListener(
     "click",
     function () {
+        // Annullare la visione dei punti quando ri-giochi
+        let userPoints = document.querySelector(".points");
+        userPoints.innerHTML = ``;
+        // prendo i valori per sapere il livello scelto dal giocatore
         let levelUserSelection = document.querySelector("#levels").value;
 
         if (levelUserSelection == "level-1") {

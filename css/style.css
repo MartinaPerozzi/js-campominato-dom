@@ -99,6 +99,18 @@ select {
     /* appearance: none; */
 }
 
+.point-container {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(62, 157, 191);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    padding: 10px;
+    border-radius: 1.2rem;
+    background: #1d2634;
+    box-shadow: inset 5px 5px 6px #0c0f15,
+        inset -5px -5px 6px #2e3d53;
+}
 
 
 /* Button */
