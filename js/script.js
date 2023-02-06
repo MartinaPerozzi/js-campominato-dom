@@ -128,19 +128,17 @@ function gameOver() {
     bombBoxes.forEach((element) => { element.classList.add("cell-warning"); });
     bombBoxes.forEach((element) => { element.innerHTML = '<font size="6">💣</font>'; });
 
-    // gameOverMessage.classList.toggle("d-none");
-    // playAgain.addEventListener(
-    //     "click",
-    //     function () {
-    //         containerGrid.innerHTML = "";
-    //         gameOverContainer.innerHTML = "";
-    //     }
-    // )
+    gameOverMessage.classList.toggle("d-none");
+    playAgain.addEventListener(
+        "click",
+        function () {
+            containerGrid.innerHTML = "";
+            gameOverContainer.innerHTML = "";
+        }
+    )
 
     return activeBoxes;
 }
-
-
 
 // function gameOverMessage() {
 //     const gameOver = document.querySelector("game-over-message");
