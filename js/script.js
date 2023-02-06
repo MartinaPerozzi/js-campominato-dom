@@ -1,6 +1,10 @@
 // Preparo gli elementi necessari
 const submitChoiceButton = document.querySelector(".submit-button");
 const containerGrid = document.querySelector(".grid");
+const gameOverMessage = document.querySelector(".game-over-message");
+gameOverMessage.classList.add("d-none");
+const playAgain = document.querySelector(".play-again-btn");
+const gameOverContainer = document.querySelector(".contain-game");
 
 
 // Levels
@@ -21,14 +25,18 @@ const levelThree = 49;
 function generateGrid(grid, level) { //GENERA
     // Parti da un luogo sempre vuoto
     grid.innerHTML = "";
+    // TODO: Creo le bombe - invoco la funzione 
+    const bombs = createBombs(level);
+
     // Per n volte
     for (let i = 1; i <= level; i++) {
         // Crea un div e assegna loro una classe (dimensioni e bordo)
         const boxElements = document.createElement("div");
 
+        // TODO: check se le i includono l'elemento corrente- aggiungo la classe- 
+
         // Prendi il valore inserito dall'utente (il livello)
         let levelUserSelection = document.querySelector("#levels").value;
-
         if (levelUserSelection == "level-1") {
             boxElements.classList.add("box");
         } if (levelUserSelection == "level-2") {
@@ -46,6 +54,16 @@ function generateGrid(grid, level) { //GENERA
         // Setta l'attributo che tiene il conto della posizione dei box
         boxElements.setAttribute("data-index", i);
 
+        // TENTATIVO DI INSERIRE LE CLASSI PRIMA
+
+        if (bombs.includes(i)) {
+            boxElements.classList.toggle("bomb");
+            // boxElements.classList.toggle("cell-warning");
+
+        } else {
+            boxElements.classList.add("safe");
+            // boxElements.classList.toggle("cell-bg");
+        }
         // Rendili cliccabili
         boxElements.addEventListener(
             "click",
@@ -61,7 +79,7 @@ function generateGrid(grid, level) { //GENERA
                 console.log("Il box che hai cliccato è il numero: " + boxCell);
 
                 // Se la cella selezionata è tra i numeri random generati dal pc- la casella diventa rossa
-                if (placeBombs.includes(boxCell)) {
+                if (bombs.includes(boxCell)) {
 
                     this.classList.toggle("cell-warning");
                     this.innerHTML = '<font size="6">💣</font>';
@@ -82,12 +100,14 @@ function generateGrid(grid, level) { //GENERA
         )
 
     }
-
-    // INSERISCO UN CICLO PER GENERARE NUMERI RANDOM (in base al livello selezionato dall'utente)
-    let placeBombs = [];
+}
+// FUNZIONE CHE TERMINA IL GIOCO
+// INSERISCO UN CICLO PER GENERARE NUMERI RANDOM (in base al livello selezionato dall'utente)
+function createBombs(levels) {
+    const placeBombs = [];
     while (placeBombs.length < 16) {
         // Math.random inclusive formula
-        let randomBombNumber = Math.floor(Math.random() * (level - 1 + 1) + 1);
+        let randomBombNumber = Math.floor(Math.random() * (levels - 1 + 1) + 1);
 
         if (!placeBombs.includes(randomBombNumber)) {
             placeBombs.push(randomBombNumber);
@@ -95,47 +115,67 @@ function generateGrid(grid, level) { //GENERA
         console.log(placeBombs);
     }
     return placeBombs;
-
 }
-// FUNZIONE CHE TERMINA IL GIOCO
+
 function gameOver() {
     const activeBoxes = document.querySelectorAll(".cell-bg");
     console.log(activeBoxes);
     let userPoints = document.querySelector(".points");
     userPoints.innerHTML = `${activeBoxes.length}`;
 
+    const bombBoxes = document.querySelectorAll(".bomb");
+    console.log(bombBoxes);
+    bombBoxes.forEach((element) => { element.classList.add("cell-warning"); });
+    bombBoxes.forEach((element) => { element.innerHTML = '<font size="6">💣</font>'; });
+
+    // gameOverMessage.classList.toggle("d-none");
+    // playAgain.addEventListener(
+    //     "click",
+    //     function () {
+    //         containerGrid.innerHTML = "";
+    //         gameOverContainer.innerHTML = "";
+    //     }
+    // )
 
     return activeBoxes;
 }
 
 
+
+// function gameOverMessage() {
+//     const gameOver = document.querySelector("game-over-message");
+//     gameOver.classList.add("d-block");
+// }
+
 /*************************************
  *                                   *
  *             ON CLICK              *
  *************************************/
-
+play()
 // Al click del bottone, a seconda della scelta del giocatore - crea la griglia- genera la bombe
-submitChoiceButton.addEventListener(
-    "click",
-    function () {
-        // Annullare la visione dei punti quando ri-giochi
-        let userPoints = document.querySelector(".points");
-        userPoints.innerHTML = ``;
-        // prendo i valori per sapere il livello scelto dal giocatore
-        let levelUserSelection = document.querySelector("#levels").value;
+function play() {
+    submitChoiceButton.addEventListener(
+        "click",
+        function () {
+            // Annullare la visione dei punti quando ri-giochi
+            let userPoints = document.querySelector(".points");
+            userPoints.innerHTML = ``;
+            // prendo i valori per sapere il livello scelto dal giocatore
+            let levelUserSelection = document.querySelector("#levels").value;
 
-        if (levelUserSelection == "level-1") {
-            generateGrid(containerGrid, levelOne);
+            if (levelUserSelection == "level-1") {
+                generateGrid(containerGrid, levelOne);
 
-        } if (levelUserSelection == "level-2") {
-            generateGrid(containerGrid, levelTwo);
+            } if (levelUserSelection == "level-2") {
+                generateGrid(containerGrid, levelTwo);
 
-        } else if (levelUserSelection == "level-3") {
-            generateGrid(containerGrid, levelThree);
+            } else if (levelUserSelection == "level-3") {
+                generateGrid(containerGrid, levelThree);
+            }
         }
-    }
 
-)
+    )
+}
 
 // function bombsOut(box) {
 

@@ -8,6 +8,10 @@ body {
     color: white;
 }
 
+.contain-game {
+    position: relative;
+}
+
 /* HEADER */
 header {
     background: #1d2634;
@@ -163,6 +167,30 @@ footer {
     pointer-events: none;
 }
 
+.game-over-message {
+    position: absolute;
+    left: 30%;
+    top: 150px;
+    padding: 2rem;
+    background: linear-gradient(145deg, #1a222f, #1f2938);
+    box-shadow: 5px 5px 10px #11161f,
+        -5px -5px 10px #293649;
+    z-index: 2;
+    border-radius: 1rem;
+}
+
+.play-again-btn {
+    color: rgb(166, 216, 235);
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #1a222f, #1f2938);
+    box-shadow: 5px 5px 10px #11161f,
+        -5px -5px 10px #293649;
+    outline: 2px solid rgb(166, 216, 235);
+    outline-offset: -3px;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 932px) {
@@ -194,7 +222,8 @@ footer {
     }
 
     select,
-    .submit-button {
+    .submit-button,
+    .point-container {
         height: 40px;
         padding: 0rem 0.3rem 0rem 0.3rem;
 
@@ -215,7 +244,6 @@ footer {
 /* XS */
 @media screen and (max-width: 400px) {
 
-    header {}
 
     .grid {
         width: 300px;
