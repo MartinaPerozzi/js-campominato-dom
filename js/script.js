@@ -1,7 +1,7 @@
 // Preparo gli elementi necessari
 const submitChoiceButton = document.querySelector(".submit-button");
 const containerGrid = document.querySelector(".grid");
-let gameOverBoo = false;
+
 
 // Levels
 const levelOne = 100;
@@ -66,7 +66,6 @@ function generateGrid(grid, level) { //GENERA
                     this.classList.toggle("cell-warning");
                     this.innerHTML = '<font size="6">💣</font>';
                     gameOver();
-                    gameOverBoo == true;
 
                     // SUPERBONUS 1- le caselle non si cliccano più
                     let stopGame = document.querySelectorAll(".grid>div");
