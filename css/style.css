@@ -167,9 +167,10 @@ footer {
     pointer-events: none;
 }
 
+/* GAME OVER MESSAGE */
 .game-over-message {
     position: absolute;
-    left: 30%;
+    left: 35%;
     top: 150px;
     padding: 2rem;
     background: linear-gradient(145deg, #1a222f, #1f2938);

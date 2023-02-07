@@ -2,16 +2,14 @@
 const submitChoiceButton = document.querySelector(".submit-button");
 const containerGrid = document.querySelector(".grid");
 const gameOverMessage = document.querySelector(".game-over-message");
-gameOverMessage.classList.add("d-none");
 const playAgain = document.querySelector(".play-again-btn");
-const gameOverContainer = document.querySelector(".contain-game");
+const gameOverContainer = document.querySelector(".contain-game");//non utilizzato
 
 
 // Levels
 const levelOne = 100;
 const levelTwo = 81;
 const levelThree = 49;
-
 /********************************************
  *                                          *
  *               FUNCTIONS                  *
@@ -23,6 +21,7 @@ const levelThree = 49;
  * @param {Int} level livello scelto dall'utente e dimensione griglia;
  */
 function generateGrid(grid, level) { //GENERA
+    gameOverMessage.classList.add("d-none");
     // Parti da un luogo sempre vuoto
     grid.innerHTML = "";
     // TODO: Creo le bombe - invoco la funzione 
@@ -95,13 +94,11 @@ function generateGrid(grid, level) { //GENERA
                     this.classList.toggle("cell-bg");
                 }
 
-
             }
         )
 
     }
 }
-// FUNZIONE CHE TERMINA IL GIOCO
 // INSERISCO UN CICLO PER GENERARE NUMERI RANDOM (in base al livello selezionato dall'utente)
 function createBombs(levels) {
     const placeBombs = [];
@@ -117,6 +114,7 @@ function createBombs(levels) {
     return placeBombs;
 }
 
+// FUNZIONE CHE TERMINA IL GIOCO
 function gameOver() {
     const activeBoxes = document.querySelectorAll(".cell-bg");
     console.log(activeBoxes);
@@ -128,22 +126,19 @@ function gameOver() {
     bombBoxes.forEach((element) => { element.classList.add("cell-warning"); });
     bombBoxes.forEach((element) => { element.innerHTML = '<font size="6">💣</font>'; });
 
-    gameOverMessage.classList.toggle("d-none");
+    // Messaggio di Game Over
+    gameOverMessage.classList.remove("d-none");
     playAgain.addEventListener(
         "click",
         function () {
             containerGrid.innerHTML = "";
-            gameOverContainer.innerHTML = "";
+            // gameOverContainer.innerHTML = "";
+            gameOverMessage.classList.add("d-none");
         }
     )
 
     return activeBoxes;
 }
-
-// function gameOverMessage() {
-//     const gameOver = document.querySelector("game-over-message");
-//     gameOver.classList.add("d-block");
-// }
 
 /*************************************
  *                                   *
@@ -175,14 +170,4 @@ function play() {
     )
 }
 
-// function bombsOut(box) {
 
-//     let boxes = document.querySelectorAll(".grid div");
-
-//     for (boxes of boxes) {
-//         const boxesIndex = parseInt(boxes.getAttribute("data-index"));
-//         if (placeBombs.includes(boxesIndex)) {
-//             boxes.classList.add("warning-cell");
-//         }
-//     }
-// }
